@@ -10,6 +10,8 @@
 #define CYN  "\x1B[36m"
 #define WHT  "\x1B[37m"
 
+#define COLOUR YEL
+
 int main(int argc, char* argv[]) {
     FILE *f = fopen(argv[1], "r");
     char c = fgetc(f);
@@ -18,18 +20,18 @@ int main(int argc, char* argv[]) {
         switch(c) {
             case 'r' :
             case 'l' :
-				printf(GRN);
+				printf(COLOUR);
                 c = 'w';
                 break;
             case 'R' :
             case 'L' :
-				printf(GRN);
+				printf(COLOUR);
                 c = 'W';
                 break;
             case 't' :
                 check = fgetc(f);
                 if (check == 'H' || check == 'h') {
-					printf(GRN);
+					printf(COLOUR);
                     c = 'd';
                 } else {
                     check1 = check;
@@ -41,7 +43,7 @@ int main(int argc, char* argv[]) {
             case 'T' :
                 check = fgetc(f);
                 if (check == 'H' || check =='h') {
-					printf(GRN);
+					printf(COLOUR);
                     c = 'D';
                 } else {
                     check1 = check;
