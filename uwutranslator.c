@@ -63,5 +63,6 @@ int main(int argc, char* argv[]) {
         c = fgetc(f);
     }
     printf("\n");
+    fclose(f);
     return 0;
 }
