@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
     }
     char c = fgetc(f);
     char check,check1;
-    while (c != EOF) {
+    while ((c = fgetc(f) != EOF) {
         switch(c) {
             case 'r' :
             case 'l' :
@@ -59,8 +59,7 @@ int main(int argc, char* argv[]) {
                 break;
         }
         fputc(c, stdout);
-		printf(WHT);
-        c = fgetc(f);
+	printf(WHT);
     }
     printf("\n");
     fclose(f);
