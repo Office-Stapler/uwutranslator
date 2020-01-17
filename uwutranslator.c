@@ -24,19 +24,19 @@ int main(int argc, char* argv[]) {
         switch(c) {
             case 'r' :
             case 'l' :
-				printf(COLOUR);
+		printf(COLOUR);
                 c = 'w';
                 break;
             case 'R' :
             case 'L' :
-				printf(COLOUR);
+		printf(COLOUR);
                 c = 'W';
                 break;
             case 't' :
                 check = fgetc(f);
                 if (check == 'H' || check == 'h') {
-					printf(COLOUR);
-                    c = 'd';
+			printf(COLOUR);
+                	c = 'd';
                 } else {
                     check1 = check;
                     check = c;
@@ -47,13 +47,13 @@ int main(int argc, char* argv[]) {
             case 'T' :
                 check = fgetc(f);
                 if (check == 'H' || check =='h') {
-					printf(COLOUR);
-                    c = 'D';
+			printf(COLOUR);
+                	c = 'D';
                 } else {
-                    check1 = check;
-                    check = c;
-                    c = check1;
-                    fputc(check, stdout);
+			check1 = check;
+			check = c;
+			c = check1;
+			fputc(check, stdout);
                 }
             default: 
                 break;
