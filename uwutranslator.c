@@ -19,49 +19,24 @@ int main(int argc, char* argv[]) {
         exit(1);
     }
     char c = fgetc(f);
-    char check,check1;
-    while ((c = fgetc(f) != EOF) {
-        switch(c) {
-            case 'r' :
-            case 'l' :
-		printf(COLOUR);
-                c = 'w';
-                break;
-            case 'R' :
-            case 'L' :
-		printf(COLOUR);
-                c = 'W';
-                break;
-            case 't' :
-                check = fgetc(f);
-                if (check == 'H' || check == 'h') {
-			printf(COLOUR);
-                	c = 'd';
-                } else {
-                    check1 = check;
-                    check = c;
-                    c = check1;
-                    fputc(check, stdout);
-                }
-                break;
-            case 'T' :
-                check = fgetc(f);
-                if (check == 'H' || check =='h') {
-			printf(COLOUR);
-                	c = 'D';
-                } else {
-			check1 = check;
-			check = c;
-			c = check1;
-			fputc(check, stdout);
-                }
-            default: 
-                break;
+    while (c != EOF) {
+        if (c == 'r' || c == 'R' || c == 'l' || c == 'L') {
+            printf(COLOUR);
+            c = (c == 'r' || c == 'l') ? 'w' : 'W';
+        } else if (c == 't' || c == 'T') {
+            char temp = c;
+            c = fgetc(f);
+            if (c == 'h' || c == 'H') {
+                printf(COLOUR);
+                c = (temp == 'T') ? 'D' : 'd';
+            } else {
+                putchar(temp);
+            }
         }
-        fputc(c, stdout);
-	printf(WHT);
+        putchar(c);
+        printf(WHT);
+        c = fgetc(f);
     }
-    printf("\n");
     fclose(f);
     return 0;
 }
