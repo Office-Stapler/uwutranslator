@@ -37,6 +37,7 @@ int main(int argc, char* argv[]) {
         printf(WHT);
         c = fgetc(f);
     }
+    putchar('\n');
     fclose(f);
     return 0;
 }
