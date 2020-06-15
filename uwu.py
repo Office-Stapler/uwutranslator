@@ -72,5 +72,4 @@ for char in text:
     else:
         uwufinal += char
     uwufinal += bcolours.CWHITE
-uwufinal += '\n'
 print(uwufinal)
